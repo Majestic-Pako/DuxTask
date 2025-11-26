@@ -1,0 +1,33 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Base.Theme.DuxTask" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <item name="colorPrimary">@color/blue_accent</item>
+        <item name="colorPrimaryVariant">@color/blue_accent_pressed</item>
+        <item name="colorOnPrimary">@color/white_minimal</item>
+
+        <item name="colorSecondary">@color/blue_soft</item>
+        <item name="colorSecondaryVariant">@color/blue_accent</item>
+        <item name="colorOnSecondary">@color/graphite_dark</item>
+
+        <item name="android:windowBackground">@color/graphite_dark</item>
+        <item name="backgroundColor">@color/graphite_dark</item>
+
+        <item name="colorSurface">@color/graphite_light</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+
+        <item name="colorError">@color/error_red</item>
+
+        <item name="android:statusBarColor">@color/graphite_dark</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+
+        <item name="android:navigationBarColor">@color/graphite_dark</item>
+
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+
+    </style>
+
+    <style name="Theme.DuxTask" parent="Base.Theme.DuxTask" />
+
+</resources>

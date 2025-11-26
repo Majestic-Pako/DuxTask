@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DuxTask</string>
+
+    <string name="hint_titulo">Título</string>
+    <string name="hint_descripcion">Descripción</string>
+    <string name="prompt_categoria">Selecciona categoría</string>
+    <string name="prompt_subcategoria">Selecciona subcategoría</string>
+    <string name="prompt_estado">Selecciona estado</string>
+
+    <string name="btn_guardar">Guardar</string>
+    <string name="btn_iniciar_sesion">Iniciar Sesión</string>
+    <string name="btn_registrar">Registrar</string>
+
+    <string name="hint_correo">Correo electrónico</string>
+    <string name="hint_contraseña">Contraseña</string>
+    <string name="app_subtitle">Gestión minimalista de tareas</string>
+</resources>

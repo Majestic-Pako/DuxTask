@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondoapp"
+    tools:context=".TaskActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnVolver"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:contentDescription="Volver a la pantalla anterior"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:icon="@drawable/ic_arrow_back"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:iconTint="@color/white_minimal"
+            app:backgroundTint="@color/graphite_lighter"
+            app:cornerRadius="24dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Nueva Tarea"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/white_minimal"
+            android:layout_marginStart="16dp"
+            android:gravity="start|center_vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnVolver"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:id="@+id/scroll_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:clipToPadding="false"
+        android:paddingBottom="80dp"
+        app:layout_constraintTop_toBottomOf="@id/header_layout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="24dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_titulo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_titulo"
+                app:boxBackgroundColor="@color/graphite_light"
+                app:boxBackgroundMode="filled"
+                app:boxStrokeColor="@color/blue_accent"
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:startIconDrawable="@drawable/ic_title"
+                app:startIconTint="@color/blue_soft"
+                app:hintTextColor="@color/blue_accent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etTitulo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="@color/text_secondary"
+                    android:maxLines="1"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_descripcion"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/hint_descripcion"
+                app:boxBackgroundColor="@color/graphite_light"
+                app:boxBackgroundMode="filled"
+                app:boxStrokeColor="@color/blue_accent"
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:startIconDrawable="@drawable/ic_description"
+                app:startIconTint="@color/blue_soft"
+                app:hintTextColor="@color/blue_accent"
+                app:layout_constraintTop_toBottomOf="@id/layout_titulo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etDescripcion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="@color/text_secondary"
+                    android:minLines="3"
+                    android:maxLines="5"
+                    android:gravity="top"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/label_categoria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Categoría"
+                android:textSize="12sp"
+                android:textColor="@color/text_secondary"
+                android:textStyle="bold"
+                android:letterSpacing="0.1"
+                app:layout_constraintTop_toBottomOf="@id/layout_descripcion"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_categoria"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:cardBackgroundColor="@color/graphite_light"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                app:layout_constraintTop_toBottomOf="@id/label_categoria"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="4dp"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_category"
+                        android:padding="8dp"
+                        app:tint="@color/blue_soft"/>
+
+                    <Spinner
+                        android:id="@+id/spinnerCategoria"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:popupBackground="@color/graphite_light"
+                        android:dropDownWidth="match_parent"
+                        android:prompt="@string/prompt_categoria"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/label_subcategoria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Subcategoría"
+                android:textSize="12sp"
+                android:textColor="@color/text_secondary"
+                android:textStyle="bold"
+                android:letterSpacing="0.1"
+                app:layout_constraintTop_toBottomOf="@id/card_categoria"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_subcategoria"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:cardBackgroundColor="@color/graphite_light"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                app:layout_constraintTop_toBottomOf="@id/label_subcategoria"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="4dp"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_label"
+                        android:padding="8dp"
+                        app:tint="@color/blue_soft"/>
+
+                    <Spinner
+                        android:id="@+id/spinnerSubcategoria"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:popupBackground="@color/graphite_light"
+                        android:dropDownWidth="match_parent"
+                        android:prompt="@string/prompt_subcategoria"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/label_estado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Estado"
+                android:textSize="12sp"
+                android:textColor="@color/text_secondary"
+                android:textStyle="bold"
+                android:letterSpacing="0.1"
+                app:layout_constraintTop_toBottomOf="@id/card_subcategoria"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_estado"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="24dp"
+                app:cardBackgroundColor="@color/graphite_light"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                app:layout_constraintTop_toBottomOf="@id/label_estado"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="4dp"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_check_circle"
+                        android:padding="8dp"
+                        app:tint="@color/blue_soft"/>
+
+                    <Spinner
+                        android:id="@+id/spinnerEstado"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:popupBackground="@color/graphite_light"
+                        android:dropDownWidth="match_parent"
+                        android:prompt="@string/prompt_estado"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnGuardarTask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:contentDescription="Guardar tarea"
+        app:fabSize="normal"
+        app:backgroundTint="@color/blue_accent"
+        app:tint="@color/white_minimal"
+        app:srcCompat="@drawable/ic_save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

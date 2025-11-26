@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="graphite_dark">#1E1F22</color>
+    <color name="graphite_light">#2B2D31</color>
+    <color name="blue_accent">#3B82F6</color>
+    <color name="blue_soft">#60A5FA</color>
+    <color name="white_minimal">#F3F4F6</color>
+
+    <color name="blue_accent_pressed">#2563EB</color>
+    <color name="graphite_lighter">#36383D</color>
+    <color name="text_primary">#F3F4F6</color>
+    <color name="text_secondary">#9CA3AF</color>
+    <color name="error_red">#EF4444</color>
+
+    <color name="pattern_overlay">#0DFFFFFF</color>
+
+    <color name="category_color">#3B82F6</color>
+    <color name="subcategory_color">#60A5FA</color>
+
+    <color name="category_estudio">#8B5CF6</color>
+    <color name="category_programacion">#3B82F6</color>
+    <color name="category_trabajo">#F59E0B</color>
+
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+</resources>
