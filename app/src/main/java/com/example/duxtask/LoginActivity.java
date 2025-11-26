@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.widget.*;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
@@ -13,8 +15,8 @@ import java.util.Map;
 public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth auth;
-    private EditText campoCorreo, campoContraseña;
-    private Button botonIniciarSesion, botonRegistrar;
+    private TextInputEditText campoCorreo, campoContraseña;
+    private MaterialButton botonIniciarSesion, botonRegistrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,11 +26,6 @@ public class LoginActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
 
-        if (auth.getCurrentUser() != null && !getIntent().getBooleanExtra("FROM_LOGOUT", false)) {
-            irAlMain();
-            return;
-        }
-
         campoCorreo = findViewById(R.id.campoCorreo);
         campoContraseña = findViewById(R.id.campoContraseña);
         botonIniciarSesion = findViewById(R.id.botonIniciarSesion);
@@ -36,6 +33,16 @@ public class LoginActivity extends AppCompatActivity {
 
         botonIniciarSesion.setOnClickListener(v -> iniciarSesion());
         botonRegistrar.setOnClickListener(v -> registrarUsuario());
+    }
+
+    protected void onStart() {
+        super.onStart();
+
+        boolean fromLogout = getIntent().getBooleanExtra("FROM_LOGOUT", false);
+
+        if (auth.getCurrentUser() != null && !fromLogout) {
+            irAlMain();
+        }
     }
 
     private void registrarUsuario() {
@@ -47,10 +54,14 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
+        if (contraseña.length() < 6) {
+            Toast.makeText(this, "La contraseña debe tener al menos 6 caracteres", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         auth.createUserWithEmailAndPassword(correo, contraseña)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-
                         String uid = auth.getCurrentUser().getUid();
                         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -65,11 +76,11 @@ public class LoginActivity extends AppCompatActivity {
                                     irAlMain();
                                 })
                                 .addOnFailureListener(e ->
-                                        Toast.makeText(this, "Error al guardar en Firestore", Toast.LENGTH_LONG).show()
+                                        Toast.makeText(this, "Error al guardar en Firestore: " + e.getMessage(), Toast.LENGTH_LONG).show()
                                 );
-
                     } else {
-                        Toast.makeText(this, "Error: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                        String errorMsg = task.getException() != null ? task.getException().getMessage() : "Error desconocido";
+                        Toast.makeText(this, "Error al crear cuenta: " + errorMsg, Toast.LENGTH_LONG).show();
                     }
                 });
     }
@@ -97,6 +108,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void irAlMain() {
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
     }

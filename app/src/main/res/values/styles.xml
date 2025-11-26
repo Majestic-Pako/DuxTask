@@ -84,4 +84,22 @@
         <item name="contentPadding">16dp</item>
     </style>
 
+    <style name="DuxTaskAlertDialog" parent="Theme.MaterialComponents.Dialog.Alert">
+        <item name="android:background">@color/graphite_light</item>
+        <item name="colorPrimary">@color/blue_accent</item>
+        <item name="colorAccent">@color/blue_accent</item>
+        <item name="android:textColorPrimary">@color/white_minimal</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+    </style>
+
+    <style name="NegativeButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/blue_soft</item>
+    </style>
+
+    <style name="PositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/error_red</item>
+    </style>
+
 </resources>

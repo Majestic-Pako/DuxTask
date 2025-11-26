@@ -95,7 +95,7 @@ public class TaskListFragment extends Fragment implements TaskAdapter.TaskClickL
 
     @Override
     public void onDeleteClick(Task task, int position) {
-        new AlertDialog.Builder(requireContext())
+        new AlertDialog.Builder(requireContext(), R.style.DuxTaskAlertDialog)
                 .setTitle("Eliminar tarea")
                 .setMessage("¿Estás seguro de eliminar '" + task.getTitle() + "'?")
                 .setPositiveButton("Eliminar", (dialog, which) -> {
