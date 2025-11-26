@@ -9,10 +9,6 @@
     android:background="@color/graphite_dark"
     tools:context=".TaskActivity">
 
-    <!-- Header simple con botón volver y título -->
-
-    <!-- ScrollView para el contenido del formulario -->
-    <!-- ScrollView para el contenido del formulario -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/header_layout"
         android:layout_width="0dp"
@@ -24,7 +20,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Botón Volver -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnVolver"
             android:layout_width="48dp"
@@ -42,7 +37,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Título -->
         <TextView
             android:id="@+id/toolbar_title"
             android:layout_width="0dp"
@@ -77,7 +71,6 @@
             android:layout_height="wrap_content"
             android:padding="2dp">
 
-            <!-- Campo Título -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layout_titulo"
                 android:layout_width="0dp"
@@ -108,7 +101,6 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Campo Descripción -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layout_descripcion"
                 android:layout_width="0dp"
@@ -142,7 +134,6 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Label Categoría -->
             <TextView
                 android:id="@+id/label_categoria"
                 android:layout_width="wrap_content"
@@ -156,7 +147,6 @@
                 app:layout_constraintTop_toBottomOf="@id/layout_descripcion"
                 app:layout_constraintStart_toStartOf="parent"/>
 
-            <!-- Spinner Categoría -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_categoria"
                 android:layout_width="0dp"
@@ -198,7 +188,6 @@
 
             </androidx.cardview.widget.CardView>
 
-            <!-- Label Subcategoría -->
             <TextView
                 android:id="@+id/label_subcategoria"
                 android:layout_width="wrap_content"
@@ -212,7 +201,6 @@
                 app:layout_constraintTop_toBottomOf="@id/card_categoria"
                 app:layout_constraintStart_toStartOf="parent"/>
 
-            <!-- Spinner Subcategoría -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_subcategoria"
                 android:layout_width="0dp"
@@ -254,7 +242,6 @@
 
             </androidx.cardview.widget.CardView>
 
-            <!-- Label Estado -->
             <TextView
                 android:id="@+id/label_estado"
                 android:layout_width="wrap_content"
@@ -268,7 +255,6 @@
                 app:layout_constraintTop_toBottomOf="@id/card_subcategoria"
                 app:layout_constraintStart_toStartOf="parent"/>
 
-            <!-- Spinner Estado -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_estado"
                 android:layout_width="0dp"
@@ -315,8 +301,6 @@
 
     </ScrollView>
 
-    <!-- FAB (Floating Action Button) para Guardar - Abajo a la derecha -->
-    <!-- FAB para Guardar - Abajo a la derecha -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnGuardarTask"
         android:layout_width="wrap_content"
